@@ -4,7 +4,7 @@ firephp.org
 ===========
 
 This project provides the **development environment for FirePHP** which feeds 
-[firephp.org](http://firephp.org] and other release channels.
+[firephp.org](http://firephp.org) and other release channels.
 
 Base Requirements
 -----------------
