@@ -28,6 +28,7 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 # Configure /app folder with sample app
+RUN mkdir /usr/share/php/lib
 RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 ADD sample/ /app
 

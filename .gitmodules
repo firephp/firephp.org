@@ -1,0 +1,3 @@
+[submodule "lib/firephp-core"]
+	path = lib/firephp-core
+	url = https://github.com/firephp/firephp-core.git

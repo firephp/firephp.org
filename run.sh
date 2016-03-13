@@ -34,8 +34,12 @@ function init {
 			#       @insight on.stop -> }
 
 		    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" -p 8000:80 "cadorn/firephp"
-
-	        rsync -avh -e 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2222' --stats --progress "$__BO_DIR__/website"/* root@$(docker-machine ip default):/app/.
+		    
+		    function sync {
+		        rsync -avh -e 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2222' --stats --progress "$1"/* "root@$(docker-machine ip default):$2/."
+		    }
+		    sync "$__BO_DIR__/lib" "/usr/share/php/lib"
+		    sync "$__BO_DIR__/website" "/app"
 
     		# TODO: Only launch if not already open and only if --open is specified
     	    open http://$(docker-machine ip default):8000/
