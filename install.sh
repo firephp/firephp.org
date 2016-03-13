@@ -31,31 +31,6 @@ function init {
         php -v
 
 
-        if [ ! -e ".packages" ]; then
-            mkdir ".packages"
-        fi
-
-
-        BO_log "$VERBOSE" "Ensuring Composer ..."
-        pushd ".packages" > /dev/null
-            if [ ! -e "composer.phar" ]; then
-                BO_log "$VERBOSE" "Downloading Composer ..."
-                curl -sS https://getcomposer.org/installer | php
-            fi
-        popd > /dev/null
-        function composer {
-            php -d xdebug.default_enable=0 -d xdebug.extended_info=0 $__BO_DIR__/.packages/composer.phar $@
-        }
-
-
-        pushd "website" > /dev/null
-            if [ ! -e "vendor" ]; then
-                BO_log "$VERBOSE" "Installing website ..."
-                composer install
-            fi
-        popd  /dev/null
-
-	    
         BO_format "$VERBOSE" "FOOTER"
 	}
 
@@ -63,3 +38,36 @@ function init {
 
 }
 init $@
+
+
+function __DEPRECATED__Install {
+    BO_format "$VERBOSE" "HEADER" "Installing FirePHP Workspace ..."
+
+
+    if [ ! -e ".packages" ]; then
+        mkdir ".packages"
+    fi
+
+
+    BO_log "$VERBOSE" "Ensuring Composer ..."
+    pushd ".packages" > /dev/null
+        if [ ! -e "composer.phar" ]; then
+            BO_log "$VERBOSE" "Downloading Composer ..."
+            curl -sS https://getcomposer.org/installer | php
+        fi
+    popd > /dev/null
+    function composer {
+        php -d xdebug.default_enable=0 -d xdebug.extended_info=0 $__BO_DIR__/.packages/composer.phar $@
+    }
+
+
+    pushd "website" > /dev/null
+        if [ ! -e "vendor" ]; then
+            BO_log "$VERBOSE" "Installing website ..."
+            composer install
+        fi
+    popd  /dev/null
+
+    
+    BO_format "$VERBOSE" "FOOTER"
+}

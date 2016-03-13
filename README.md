@@ -3,14 +3,17 @@
 firephp.org
 ===========
 
-This project provides the **development environment for FirePHP** which feeds 
+This project provides the **development environment and website for FirePHP** which feeds 
 [firephp.org](http://firephp.org) and other release channels.
+
+**NOTE:** You do not need to install this project to use FirePHP. See: <a href="http://firephp.org/">firephp.org</a>
+
 
 Base Requirements
 -----------------
 
   * OSX (will also eventually work on windows)
-  * PHP 7+
+  * Docker
   * [nvm](https://github.com/creationix/nvm)
 
 Install
@@ -35,4 +38,4 @@ Support
 Provenance
 ==========
 
-Original source logic under [Free Public License](https://lists.opensource.org/pipermail/license-review/2015-October/001254.html) by [Christoph Dorn](http://christophdorn.com)
+Original source logic under [Free Public License](https://opensource.org/licenses/FPL-1.0.0) by [Christoph Dorn](http://christophdorn.com)
