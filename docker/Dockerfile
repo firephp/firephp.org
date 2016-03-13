@@ -4,6 +4,7 @@ MAINTAINER Fernando Mayo <fernando@tutum.co>
 # Install base packages
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
+        openssh-server \
         curl \
         apache2 \
         libapache2-mod-php5 \
@@ -31,4 +32,18 @@ ADD sample/ /app
 
 EXPOSE 80
 WORKDIR /app
+
+
+
+# @see https://github.com/tutumcloud/tutum-ubuntu/blob/master/trusty/Dockerfile
+# TODO: Lock down more: http://www.ibm.com/developerworks/aix/library/au-sshlocks/
+RUN mkdir -p /var/run/sshd && \
+    sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation yes/g" /etc/ssh/sshd_config && \
+    sed -i "s/StrcitModes.*/StrcitModes yes/g" /etc/ssh/sshd_config && \
+    sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
+
+ENV AUTHORIZED_KEYS **None**
+
+EXPOSE 22
+
 CMD ["/run.sh"]
