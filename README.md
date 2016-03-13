@@ -3,7 +3,7 @@
 firephp.org
 ===========
 
-This project provides the **development environment and website for FirePHP** which feeds 
+This project provides the **FirePHP development workspace and website** which feeds 
 [firephp.org](http://firephp.org) and other release channels.
 
 **NOTE:** You do not need to install this project to use FirePHP. See: <a href="http://firephp.org/">firephp.org</a>
