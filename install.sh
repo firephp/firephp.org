@@ -19,18 +19,6 @@ function init {
         BO_format "$VERBOSE" "HEADER" "Installing FirePHP Workspace ..."
 
 
-        BO_log "$VERBOSE" "Detecting PHP ..."
-        phpBasePath="/usr/local/php5"
-        if [ ! -e "$phpBasePath" ]; then
-            echo "No PHP install found!"
-            exit 1
-        fi
-        BO_log "$VERBOSE" "Putting PHP bins on PATH ..."
-        export PATH="${phpBasePath}/bin:$PATH"
-        BO_log "$VERBOSE" "Detected PHP:"
-        php -v
-
-
         BO_format "$VERBOSE" "FOOTER"
 	}
 
@@ -42,6 +30,18 @@ init $@
 
 function __DEPRECATED__Install {
     BO_format "$VERBOSE" "HEADER" "Installing FirePHP Workspace ..."
+
+
+    BO_log "$VERBOSE" "Detecting PHP ..."
+    phpBasePath="/usr/local/php5"
+    if [ ! -e "$phpBasePath" ]; then
+        echo "No PHP install found!"
+        exit 1
+    fi
+    BO_log "$VERBOSE" "Putting PHP bins on PATH ..."
+    export PATH="${phpBasePath}/bin:$PATH"
+    BO_log "$VERBOSE" "Detected PHP:"
+    php -v
 
 
     if [ ! -e ".packages" ]; then

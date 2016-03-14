@@ -10,30 +10,23 @@ function init {
 	BO_deriveSelfDir ___TMP___ "$BO_SELF_BASH_SOURCE"
 	local __BO_DIR__="$___TMP___"
 
+	BO_sourcePrototype "$__BO_DIR__/activate.sh"
+
 
 	function Run {
         BO_format "$VERBOSE" "HEADER" "Running FirePHP Workspace ..."
 
+    	BO_sourcePrototype "$__BO_DIR__/build.sh" $@
+
 		pushd "$__BO_DIR__/docker" > /dev/null
-
-			# @see https://docs.docker.com/machine/get-started/
-			# docker-machine ls
-			# docker-machine create --driver virtualbox default
-			# eval "$(docker-machine env default)"
-
-			docker-machine start default || true
-			eval "$(docker-machine env default)"
-
-		    docker build -t cadorn/firephp .
-
 
 			# @source http://stackoverflow.com/a/34899613/330439
 			# TODO: Schedule call to run this when this script exits unless there is a flag to not exit.
 			#       @insight on.stop -> {
-			docker stop $(docker ps --filter ancestor="cadorn/firephp" --format="{{.ID}}") || true
+			docker stop $(docker ps --filter ancestor="cadorn/firephp.org" --format="{{.ID}}") || true
 			#       @insight on.stop -> }
 
-		    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" -p 8000:80 "cadorn/firephp"
+		    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" -p 8000:80 "cadorn/firephp.org"
 		    
 		    function sync {
 		        rsync -avh -e 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2222' --stats --progress "$1"/* "root@$(docker-machine ip default):$2/."
@@ -53,12 +46,3 @@ function init {
 
 }
 init $@
-
-
-
-function __DEPRECATED__ {
-    pushd "docs" > /dev/null
-        php website/vendor/bin/couscous preview
-    popd > /dev/null
-}
-

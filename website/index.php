@@ -39,6 +39,11 @@ require('_header.php');
     <h2>Stable Downloads</h2>
 
     <ul>
+        <li><a href="https://blog.getfirebug.com/2016/02/08/merging-firebug-into-the-built-in-firefox-developer-tools/">Multi-process Architecture</a>
+            <ul>
+                <li>Coming Soon: FirePHP Extension for Firebug.Next (Firebug 3.0) &amp; Firefox Developer Tools</li>
+            </ul>
+        </li>
         <li>Firefox 8+ &amp; <a href="http://getfirebug.com/downloads">Firebug 1.9+</a>
             <ul>
                 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/firephp/">Install FirePHP Extension 0.7.4 from Mozilla Add-ons</a>
@@ -52,6 +57,7 @@ require('_header.php');
                 (<a href="https://github.com/firephp/firephp-core">Source</a>)
                 (<a href="https://github.com/firephp/firephp-core/blob/master/CHANGELOG.md">Changelog</a>)
                 </li>
+                <li><code>composer require firephp/firephp-core</code> (<a href="https://packagist.org/packages/firephp/firephp-core">packagist.org</a>)</li>
             </ul>
         </li>
     </ul>
