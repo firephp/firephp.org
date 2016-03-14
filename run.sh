@@ -10,13 +10,13 @@ function init {
 	BO_deriveSelfDir ___TMP___ "$BO_SELF_BASH_SOURCE"
 	local __BO_DIR__="$___TMP___"
 
-	BO_sourcePrototype "$__BO_DIR__/activate.sh"
+	BO_sourcePrototype "$__BO_DIR__/scripts/activate.sh"
 
 
 	function Run {
         BO_format "$VERBOSE" "HEADER" "Running FirePHP Workspace ..."
 
-    	BO_sourcePrototype "$__BO_DIR__/build.sh" $@
+    	BO_sourcePrototype "$__BO_DIR__/scripts/build.sh" $@
 
 		pushd "$__BO_DIR__/docker" > /dev/null
 
