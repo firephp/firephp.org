@@ -30,4 +30,3 @@ fb(array('2 SQL queries took 0.06 seconds',array(
   )),FirePHP::TABLE);
 /* Will show only in "Server" tab for the request */
 fb(apache_request_headers(),'RequestHeaders',FirePHP::DUMP);
-
