@@ -1,2 +1,2 @@
-/.packages/
-/.site/
+.DS_Store
+.~*
