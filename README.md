@@ -1,4 +1,4 @@
-**Status: DEV**
+**Status: DEV - Commands will currently not run for you!**
 
 firephp.org
 ===========
@@ -20,7 +20,7 @@ Development
 
     git clone https://github.com/firephp/firephp.org.git firephp.org
     cd firephp.org
-    /dev.sh
+    ./dev.sh
 
 Release
 -------
