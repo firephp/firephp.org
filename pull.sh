@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
-echo "Pulling latest"
+echo "Pulling latest image"
 
 docker pull cadorn/firephp.org:latest
 
 docker ps
 
-containerId=$(docker ps --filter ancestor="cadorn/firephp.org" | tail -n1 | cut -d " " -f1)
+containerId=$(docker ps --filter ancestor="cadorn/firephp.org" --format="{{.ID}}")
 
-echo "Existing container id2: ${containerId}"
+echo "Existing container id: ${containerId}"
 
 if [ ! -z "${containerId}" ]; then
 
-    echo "Stopping container"
+    echo "Stopping existing container with id: ${containerId}"
 
     docker stop "${containerId}" || true
 
     docker ps
 fi
 
-echo "Starting container"
+echo "Starting new container"
 
 docker run -d -p 80:80 --restart=always "cadorn/firephp.org:latest"
 # TODO: Enable SSH
@@ -27,4 +27,4 @@ docker run -d -p 80:80 --restart=always "cadorn/firephp.org:latest"
 
 docker ps
 
-echo "Container running"
+echo "New container running"
