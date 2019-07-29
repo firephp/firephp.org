@@ -6,7 +6,7 @@ docker pull cadorn/firephp.org:latest
 
 docker ps
 
-containerId=$(docker ps --filter ancestor="cadorn/firephp.org" --format="{{.ID}}")
+containerId=$(docker ps --format="{{.ID}}")
 
 echo "Existing container id: ${containerId}"
 
