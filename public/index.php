@@ -28,6 +28,10 @@ require('_header.php');
         UL > LI {
             margin-bottom: 10px;
         }
+        .smaller {
+            font-size: 90%;
+            color: #5c5c5c;
+        }
     </style>
 </head>
 
@@ -46,7 +50,10 @@ require('_header.php');
     <h2>Supported Browsers</h2>
 
     <ul>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/firephp/">Install <b>Firefox</b> Extension</a> & open Developer Tools. Click on <img class="tabicon" src="/resources/images/tab.png" width="83" height="31" border="0"></li>
+        <li>
+            <b>Firefox <span class="smaller">(&gt;= 56.0.2)</span></b><br/>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/firephp/">Install Extension</a> & open Developer Tools. Click on <img class="tabicon" src="/resources/images/tab.png" width="83" height="31" border="0">
+        </li>
     </ul>
 
     <p>&nbsp;</p>
