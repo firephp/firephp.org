@@ -8,7 +8,7 @@ require('_header.php');
     <title>FirePHP - Devtools Extension for PHP Development</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="keywords" content="php, firefox, chrome, devtools, firebug, firephp, extension, ajax, javascript, zend framework, developer, development, debug, tool" />
-    <meta name="description" content="Log from PHP to the Browser Console via HTTP Response Headers." />
+    <meta name="description" content="Log from PHP to Browser Developer Tools via HTTP Response Headers." />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style>
         BODY {
@@ -26,7 +26,7 @@ require('_header.php');
             text-align: right;
         }
         UL > LI {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .smaller {
             font-size: 90%;
@@ -49,10 +49,18 @@ require('_header.php');
     
     <h2>Supported Browsers</h2>
 
+    <p>For <b>local installation</b> and <b>support</b> see: <a href="https://github.com/firephp/firephp-for-browser-devtools">github.com/firephp/firephp-for-browser-devtools</a></p>
+
+    <p>Remote installation:</p>
+
     <ul>
         <li>
-            <b>Firefox <span class="smaller">(&gt;= 56.0.2)</span></b><br/>
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/firephp/">Install Extension</a> & open Developer Tools. Click on <img class="tabicon" src="/resources/images/tab.png" width="83" height="31" border="0">
+            <b>Mozilla Firefox <span class="smaller">(&gt;= 56.0.2)</span></b><br/>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/firephp/">Install Extension</a> & open Developer Tools. Click on <img class="tabicon" src="/resources/images/tab.png" height="31" border="0">
+        </li>
+        <li>
+            <b>Google Chrome <span class="smaller">(&gt;= 75)</span></b><br/>
+            <a href="javascript:alert('Waiting for Chrome Web Store review to complete.')">Install Extension</a> & open Developer Tools. Click on <img class="tabicon" src="/resources/images/tab2.png" height="31" border="0">
         </li>
     </ul>
 
