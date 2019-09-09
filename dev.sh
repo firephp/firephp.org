@@ -19,6 +19,7 @@ CALL_process run "FirePHPWebsite" {
             }
 
             pushd "public" > /dev/null
+                BO_ALLOW_DOWNLOADS=1
                 CALL_php composer install
             popd > /dev/null
         <<<)
