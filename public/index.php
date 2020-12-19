@@ -1,15 +1,21 @@
-<?php
-
-require('_header.php');
-
-?>
+<?php require('_header.php'); ?>
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMQ5FBHRBG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DMQ5FBHRBG');
+    </script>
+
     <title>FirePHP - Devtools Extension for PHP Development</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="keywords" content="php, firefox, chrome, devtools, firebug, firephp, extension, ajax, javascript, zend framework, developer, development, debug, tool" />
     <meta name="description" content="Log from PHP to Browser Developer Tools via HTTP Response Headers." />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     <style>
         BODY {
             padding: 30px;
