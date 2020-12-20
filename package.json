@@ -1,0 +1,16 @@
+{
+    "name": "firephp.org",
+    "private": true,
+    "devDependencies": {
+        "bash.origin": "^0.2.0-pre.5",
+        "bash.origin.docker": "^0.3.0-pre.0",
+        "bash.origin.modules": "^0.3.0-pre.0",
+        "bash.origin.php": "^0.3.0-pre.0",
+        "bash.origin.process": "^0.3.0-pre.0"
+    },
+    "scripts": {
+        "dev": "./dev.inf.json",
+        "preview": "./preview.inf.json",
+        "publish": "./publish.inf.json"
+    }
+}

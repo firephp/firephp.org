@@ -21,10 +21,16 @@ fi
 
 echo "Starting new container"
 
-docker run -d -p 80:80 --restart=always "cadorn/firephp.org:latest"
+docker run -d -p 8060:80 --restart=always "cadorn/firephp.org:latest"
 # TODO: Enable SSH
 # TODO: Mount data dir for logs
 
 docker ps
 
 echo "New container running"
+
+url="http://localhost:8060/"
+
+echo "Server running at: ${url}"
+
+open "${url}"

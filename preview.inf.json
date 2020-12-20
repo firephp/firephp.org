@@ -1,0 +1,88 @@
+#!/usr/bin/env pinf.it
+{
+    "# run": (run.bash.progress () >>>
+        [ -e ".~lib.json" ] || lib.json from node_modules > .~lib.json
+    <<<),
+
+    "#": "gi0.PINF.it/core/v0",
+
+    "#": {
+        "process": "bash.origin.process"
+    },
+
+    ":runner:": "process @ runner/v0",
+
+    "gi0.PINF.it/core/v0 @ # :runner: set() config": {
+        "build": {
+            "env": {
+                "DOCKER_IMAGE_NAME": "cadorn/firephp.org"
+            },
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                depend {
+                    "docker": {
+                        "bash.origin.docker # runner/v0": "localhost"
+                    }
+                }
+    
+                pushd "public" > /dev/null
+    
+                    #CALL_docker force_build . "${DOCKER_IMAGE_NAME}"
+    
+                    CALL_docker build . "${DOCKER_IMAGE_NAME}"
+    
+                popd > /dev/null
+            <<<)
+        },
+        "run": {
+            "depends": [
+                "build"
+            ],
+            "env": {
+                "DOCKER_IMAGE_NAME": "cadorn/firephp.org",
+                "PORT": 8081    
+            },
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                depend {
+                    "docker": {
+                        "bash.origin.docker # runner/v0": "localhost"
+                    }
+                }
+    
+                pushd "public" > /dev/null
+    
+                    echo "Server running at: http://localhost:${PORT}/"
+    
+                    CALL_docker run_no_tty "${DOCKER_IMAGE_NAME}:latest" "${PORT}"
+    
+                popd > /dev/null
+            <<<),
+            "routes": {
+                "alive": {
+                    "uri": "/"
+                }
+            }
+        },
+        "browser": {
+            "depends": [
+                "run"
+            ],
+            "env": {
+                "PORT": 8081    
+            },
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                open "http://127.0.0.1:${PORT}/"
+    
+                # TODO: Launch latest FirePHP extension from source
+    
+            <<<)        
+        }
+    },
+
+    "gi0.PINF.it/core/v0 @ # :runner: run()": ""
+}

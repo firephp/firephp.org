@@ -20,13 +20,18 @@ Development
 
     git clone https://github.com/firephp/firephp.org.git firephp.org
     cd firephp.org
-    ./dev.sh
+
+    npm install
+
+    npm run dev
 
 Release
 -------
 
-    ./preview.sh
-    ./publish.sh
+    npm install
+
+    npm run preview
+    npm run publish
 
 
 Provenance
