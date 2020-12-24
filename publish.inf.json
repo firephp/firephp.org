@@ -21,7 +21,9 @@
                 #!/usr/bin/env bash.origin.script
     
                 depend {
-                    "docker": "@com.github/bash-origin/bash.origin.docker#s1"
+                    "docker": {
+                        "bash.origin.docker # runner/v0": "localhost"
+                    }
                 }
     
                 pushd "public" > /dev/null
@@ -66,7 +68,7 @@
                     exit 1
                 fi
     
-                cat pull.sh | ssh root@${CADORN_FIREPHP_ORG_SERVER_IP} -T "cat > /pull.sh"
+                cat pull-on-server.sh | ssh root@${CADORN_FIREPHP_ORG_SERVER_IP} -T "cat > /pull.sh"
     
                 ssh root@${CADORN_FIREPHP_ORG_SERVER_IP} "chmod u+x /pull.sh && /pull.sh"
     
