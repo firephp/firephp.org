@@ -1,16 +1,12 @@
 <?php require('_header.php'); ?>
 
 <div class="preview">
-    <img src="/resources/images/console-preview-small.jpg" width="400" height="356" border="0">
+    <img class="screenshot" src="/resources/images/console-preview-small.jpg" width="400" height="356" border="0">
 </div>
 
 <p>Log from PHP to Browser Developer Tools via HTTP Response Headers.</p>
 
 <h2>Supported Browsers</h2>
-
-<p>For <b>local installation</b> and <b>support</b> see: <a href="https://github.com/firephp/firephp-for-browser-devtools">github.com/firephp/firephp-for-browser-devtools</a></p>
-
-<p>Remote installation:</p>
 
 <ul>
     <li>
@@ -27,11 +23,14 @@
     </li>
 </ul>
 
+<p>The FirePHP browser extension can also be installed locally from source: <a href="https://github.com/firephp/firephp-for-browser-devtools">github.com/firephp/firephp-for-browser-devtools</a></p>
+
 <h2>Documentation</h2>
 
 <ul>
-    <li><a href="quickstart.php">Quickstart</a></li>
-    <li><a href="api.php">API</a></li>
+    <li><a href="/quickstart.php">Quickstart</a> &nbsp;&nbsp;&nbsp; <b><--- Start Here!</b></li>
+    <li><a href="/api.php">API</a></li>
+    <li><a href="/protocol.php">Protocol</a></li>
 </ul>
 
 <h2>Supported Protocols</h2>
@@ -41,12 +40,13 @@
     <li><a href="https://craig.is/writing/chrome-logger/techspecs">Chrome Logger</a></li>
 </ul>
 
-<h2>Supported Server Libraries</h2>
+<h2>Compatible Server Libraries</h2>
 
-<p>There are also many framework plugins out there.</p>
+<p>In addition to the libraries below, there are also many more framework plugins out there.</p>
 
 <ul>
     <li><span class="language">PHP</span> <a href="https://github.com/firephp/firephp-core">FirePHPCore</a> - <b>FirePHP protocol reference implementation</b> - <code>composer require <a href="https://packagist.org/packages/firephp/firephp-core">firephp/firephp-core</a></code></li>
+    <li><span class="language">PHP</span> <a href="https://github.com/Seldaek/monolog">Monolog</a> - supports FirePHP using the <a href="https://github.com/Seldaek/monolog/blob/main/src/Monolog/Handler/FirePHPHandler.php">FirePHPHandler</a></li>
     <li><span class="language">PHP</span> <a href="https://github.com/ccampbell/chromelogger">Chrome Logger</a> - <b>Chrome Logger protocol reference implementation</b> - <code>composer require <a href="https://packagist.org/packages/ccampbell/chromephp">ccampbell/chromephp</a></code></li>
     <li><span class="language">C</span> <a href="https://github.com/lovesyx2012/FirePHP">github.com/lovesyx2012/FirePHP</a> - FirePHP protocol implementation as a Zend PHP Extension</li>
     <li><span class="language">C</span> <a href="https://github.com/xudianyang/firephp">github.com/xudianyang/firephp</a> - FirePHP protocol implementation as a Zend PHP Extension</li>

@@ -92,10 +92,17 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <style>
+        HTML {
+          text-align: center;
+        }
         BODY {
+            display: inline-block;
+            text-align: left;
             padding: 30px;
             font-family: "Roboto",sans-serif;
             line-height: 150%;
+            width: 90%;
+            max-width: 1000px;
         }
         IMG.tabicon {
             position: relative;
@@ -129,6 +136,53 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
           color: black;
           text-decoration: none;
         }
+        H2.menu {
+          margin-bottom: 40px;
+        }
+        UL.toc {
+          margin-bottom: 40px;
+        }
+        UL.toc > LI {
+          margin-bottom: 5px;
+        }
+        OL {
+          padding-inline-start: 60px;
+        }
+        PRE.code {
+          width: 100%;
+          max-width: 700px;
+          border: 1px solid #bcbcbc;
+        }
+        PRE.code > CODE.hljs {
+          padding: 10px;
+        }
+        P.highlight {
+          color: #920000;
+          font-weight: bold;
+        }
+        BLOCKQUOTE.warning {
+          border: 1px solid #920000;
+          padding: 10px;
+          color: #920000;
+          font-weight: bold;
+          background-color: #ffdcdc;
+        }
+        IMG.screenshot {
+          border: 1px solid #bcbcbc;
+          max-width: 100%;
+          height: auto;
+        }
+        IMG.screenshot.small {
+          max-width: 100%;
+          max-height: 350px;
+          height: auto;
+          cursor: pointer;
+        }
+        IMG.screenshot.large {
+          border: 2px solid black;
+          max-width: 1500px;
+          height: auto;
+        }
     </style>
 </head>
 
@@ -138,7 +192,7 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
     <a href="/"><img src="/resources/images/FirePHP_Large_White.png" width="128" height="128" border="0"></a>
 
     <h2 class="menu">
-        <a href="/">Home</a> | <a href="/quickstart.php">Quickstart</a> | <a href="/api.php">API</a>
+        <a href="/">Home</a> | <a href="/quickstart.php">Quickstart</a> | <a href="/api.php">API</a> | <a href="/protocol.php">Protocol</a>
     </h2>
     <script>
         document.querySelectorAll("H2.menu A").forEach(function (el) {
