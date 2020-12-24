@@ -1,0 +1,70 @@
+#!/usr/bin/env pinf.it
+{
+    "# run": (run.bash.progress () >>>
+        [ -e ".~lib.json" ] || lib.json from node_modules > .~lib.json
+    <<<),
+
+    "#": "gi0.PINF.it/core/v0",
+
+    "#": {
+        "process": "bash.origin.process"
+    },
+
+    ":runner:": "process @ runner/v0",
+
+    "gi0.PINF.it/core/v0 @ # :runner: set() config": {
+        "composer": {
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                depend {
+                    "php": "bash.origin.php # runner/v0"
+                }
+    
+                pushd "public" > /dev/null
+                    BO_ALLOW_DOWNLOADS=1
+                    CALL_php composer install
+                popd > /dev/null
+            <<<)
+        },
+        "php": {
+            "depends": [
+                "composer"
+            ],
+            "env": {
+                "PORT": 8081
+            },
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                depend {
+                    "php": "bash.origin.php # runner/v0"
+                }
+    
+                pushd "public" > /dev/null
+                    CALL_php run ${PORT}
+                popd > /dev/null
+            <<<),
+            "routes": {
+                "alive": {
+                    "uri": "/"
+                }
+            }
+        },
+        "browser": {
+            "depends": [
+                "php"
+            ],
+            "env": {
+                "PORT": 8081
+            },
+            "run": (bash () >>>
+                #!/usr/bin/env bash.origin.script
+    
+                open "http://127.0.0.1:${PORT}/"
+            <<<)        
+        }
+    },
+
+    "gi0.PINF.it/core/v0 @ # :runner: run()": ""
+}
