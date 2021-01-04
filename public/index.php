@@ -1,10 +1,15 @@
 <?php require('_header.php'); ?>
 
+<br/>
+
+<div class="banner">Log from PHP to Browser Developer Tools via HTTP Response Headers</div>
+
 <div class="preview">
     <img class="screenshot" src="/resources/images/console-preview-small.jpg" width="400" height="356" border="0">
 </div>
 
-<p>Log from PHP to Browser Developer Tools via HTTP Response Headers.</p>
+<br/>
+<br/>
 
 <h2>Supported Browsers</h2>
 
@@ -23,15 +28,9 @@
     </li>
 </ul>
 
-<p>The FirePHP browser extension can also be installed locally from source: <a href="https://github.com/firephp/firephp-for-browser-devtools">github.com/firephp/firephp-for-browser-devtools</a></p>
+<p>The extension can also be installed locally from <a href="https://github.com/firephp/firephp-for-browser-devtools">source</a>.</p>
 
-<h2>Documentation</h2>
-
-<ul>
-    <li><a href="/quickstart.php">Quickstart</a> &nbsp;&nbsp;&nbsp; <b><--- Start Here!</b></li>
-    <li><a href="/api.php">API</a></li>
-    <li><a href="/protocol.php">Protocol</a></li>
-</ul>
+<br/>
 
 <h2>Supported Protocols</h2>
 
@@ -39,6 +38,8 @@
     <li>FirePHP (Wildfire based)</li>
     <li><a href="https://craig.is/writing/chrome-logger/techspecs">Chrome Logger</a></li>
 </ul>
+
+<br/>
 
 <h2>Compatible Server Libraries</h2>
 

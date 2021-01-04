@@ -139,6 +139,13 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
         H2.menu {
           margin-bottom: 40px;
         }
+        DIV.edit-link-banner {
+          float: right;
+          position: relative;
+          top: -20px;
+          font-size: 0.9em;
+          color: #9a9a9a;
+        }
         UL.toc {
           margin-bottom: 40px;
         }
@@ -159,6 +166,13 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
         P.highlight {
           color: #920000;
           font-weight: bold;
+        }
+        DIV.banner {
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #4F5B93;
+          display: inline-block;
+          margin-bottom: 20px;
         }
         BLOCKQUOTE.warning {
           border: 1px solid #920000;
@@ -194,10 +208,15 @@ ChromePhp::log('ChromePhp', 'Multiple', 'Arguments');
     <h2 class="menu">
         <a href="/">Home</a> | <a href="/quickstart.php">Quickstart</a> | <a href="/api.php">API</a> | <a href="/protocol.php">Protocol</a>
     </h2>
+    <div class="edit-link-banner"><a href="https://github.com/firephp/firephp.org/blob/master/public/quickstart.php">Edit</a> this page</div>
     <script>
         document.querySelectorAll("H2.menu A").forEach(function (el) {
           if (el.getAttribute("href") === window.location.pathname) {
             el.classList.add("active");
+            if (window.location.pathname !== '/') {
+              var titleEl = document.querySelector("TITLE");
+              titleEl.innerHTML = titleEl.innerHTML.replace(/^([^-]+ - ).*$/, '$1' + el.innerHTML);
+            }
           }      
         });
     </script>

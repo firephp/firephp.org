@@ -13,21 +13,21 @@ To log variables at any point in your application it is typically necessary to e
 
 <h2>Procedural</h2>
 
-<p>Source code: <a href="https://github.com/firephp/firephp-core/blob/master/lib/FirePHPCore/fb.php">FirePHPCore/fb.php</a></p>
+<p>Procedural API implementation source code: <a href="https://github.com/firephp/firephp-core/blob/master/lib/FirePHPCore/fb.php">FirePHPCore/fb.php</a></p>
 
 <h3>Setup</h3>
 
 <pre class="code"><code class="language-php">require('FirePHPCore/fb.php');
 
 // Disable by default
-FB:setEnabled(false);
+FB::setEnabled(false);
 
 if (
     // TODO: Write these conditions yourself.
     $RunningInDevelopment ||
     $UserIsAuthorized
 ) {
-    FB:setEnabled(true);
+    FB::setEnabled(true);
 }</code></pre>
 
 <h3>Log Variables</h3>
@@ -70,7 +70,7 @@ fb(apache_request_headers(),'RequestHeaders',FirePHP::DUMP);</code></pre>
 
 <h2>Object Oriented</h2>
 
-<p>Source code: <a href="https://github.com/firephp/firephp-core/blob/master/lib/FirePHPCore/FirePHP.class.php">FirePHPCore/FirePHP.class.php</a></p>
+<p>Object Oriented API implementation source code: <a href="https://github.com/firephp/firephp-core/blob/master/lib/FirePHPCore/FirePHP.class.php">FirePHPCore/FirePHP.class.php</a></p>
 
 <h3>Setup</h3>
 
